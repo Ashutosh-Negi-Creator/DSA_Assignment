@@ -1,1 +1,32 @@
+#include<iostream>
+using namespace std;
 
+int main(){
+    cout<<"Enter the size of the Matrix :-"<<endl;
+    int N,M;
+    cin>>N;
+    cout<<"Enter Number of Elements in per row :-"<<endl;
+    cin>>M;
+    int arr[N][M];
+    for(int i=0; i<N; i++){
+        for(int j=0; j<M; j++){
+            cin>>arr[i][j];
+        }
+        cout<<endl;
+    }
+    int k=0;
+    int sum_md=0;
+    for(int i=0;i<N;i++){
+        sum_md+=arr[i][k];
+        k++;
+    }
+    int sum_sd=0;
+    k=M-1;
+    for(int i=0;i<N;i++){
+        sum_sd+=arr[i][k];
+        k--;
+    }
+    cout<<"Sum of Main Diagonal :- "<<sum_md<<endl;
+    cout<<"Sum of Secondary Diagonal :- "<<sum_sd<<endl;
+    return 0;
+}

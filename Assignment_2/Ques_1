@@ -1,1 +1,38 @@
+// Print in  Wave form from the matrix
 
+#include<iostream>
+#include <ctime>
+#include <cstdlib>
+using namespace std;
+
+int main(){
+    // WAVE FORM
+    srand(time(0));
+    cout<<"Enter the size of the Matrix :-"<<endl;
+    int N;
+    cin>>N;
+    int arr[N][N];
+    for(int i=0;i<N;i++){
+        for(int j=0;j<N;j++){
+            arr[i][j]= rand() % 9 + 1;
+        }
+    }
+    for(int i=0;i<N;i++){
+        for(int j=0;j<N;j++){
+            cout<<arr[i][j]<<" ";
+        }
+        cout<<endl;
+    }
+    for(int j=0;j<N;j++){
+        for(int i=0;i<N;i++){
+            if(j%2==0){
+                cout<<arr[i][j];
+            }
+            if(j%2!=0){
+                cout<<arr[(N-1)-i][j];
+            }
+        }
+        cout<<endl;
+    }
+    return 0;
+}

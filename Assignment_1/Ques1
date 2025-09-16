@@ -1,1 +1,39 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
 
+int main(){
+    int N,M;
+    cout<<"Number of Teams :-"<<endl;
+    cin>>N;
+    cout<<"Number of Players Per Team :-"<<endl;
+    cin>>M;
+    int arr[N][M];
+    cout<<"Enter the Scores of Each Player(row wise) :-"<<endl;
+    for(int i=0; i<N; i++){
+        for(int j=0; j<M; j++){
+            cin>>arr[i][j];
+        }
+        cout<<endl;
+    }
+    vector<int> Sum_row;
+    int sum=0;
+    for(int i=0; i<N; i++){
+        for(int j=0; j<M; j++){
+            sum+= arr[i][j];
+        }
+        Sum_row.push_back(sum);
+        sum=0;
+    }
+    int Max_Sum=0;
+    int index;
+    for(int i=0;i<N;i++){
+        if(Max_Sum<Sum_row[i]){
+            Max_Sum=Sum_row[i];
+            index = i;
+        }
+    }
+    cout<<index<<endl;
+    return 0;
+}
